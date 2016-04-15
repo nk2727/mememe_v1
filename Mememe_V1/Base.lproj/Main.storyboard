@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -18,19 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRL-ZS-8Ph">
-                                <rect key="frame" x="12" y="556" width="600" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x0e-MD-DoO">
+                                <rect key="frame" x="169" y="198" width="240" height="128"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jRL-ZS-8Ph">
+                                <rect key="frame" x="13" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="X9Y-9W-4lO">
+                                    <barButtonItem title="Camera" id="22a-h2-Qtk">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="UR5-nE-s8I"/>
+                                            <action selector="takeAPicture:" destination="BYZ-38-t0r" id="Qyy-PE-Ye3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Album" id="X9Y-9W-4lO" userLabel="Album">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="JiD-1X-WpO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0e-MD-DoO">
-                                <rect key="frame" x="169" y="200" width="240" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,6 +50,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="albumButton" destination="X9Y-9W-4lO" id="5dB-Se-LYd"/>
+                        <outlet property="cameraButton" destination="22a-h2-Qtk" id="REh-C2-lLn"/>
                         <outlet property="imageView" destination="x0e-MD-DoO" id="Zha-Rx-HWD"/>
                     </connections>
                 </viewController>

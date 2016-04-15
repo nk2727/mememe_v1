@@ -11,14 +11,24 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var albumButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    
     }
 
+    @IBAction func takeAPicture(sender: AnyObject) {
+        //
+        // create an UIImagePickerController
+        let cameraController = UIImagePickerController()
+        cameraController.delegate = self
+        cameraController.sourceType = .Camera
+        
+        presentViewController(cameraController, animated: true, completion: nil)
+    }
     
     @IBAction func pickAnImage(sender: AnyObject) {
         
@@ -39,7 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickerController.sourceType = .PhotoLibrary
         
         //
-        // show the image when 'Pick' is clicked
+        // show the image when 'Image' is clicked
         //
         presentViewController(pickerController, animated: true, completion: nil)
     }
